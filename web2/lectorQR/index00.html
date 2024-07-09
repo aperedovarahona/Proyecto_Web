@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMARA - CAPRESSO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <script type="text/javascript" src="js/instascan.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+    </script>-->
+</head>
+<body>
+    <div class="content" id="detallescanner">
+        <center>
+            <img src="https://sistemageneral.azurewebsites.net/assets/dist/img/logo.png" alt="CAPRESSO">
+            <br><br>
+            <video id="preview" poster=""></video>
+            <br>
+            <button class="btn btn-primary" onclick="encenderCamara()"><span><i class="bi bi-camera-fill" style="color:white"></i></span></button>
+            <button class="btn btn-secondary" onclick="apagarCamara()"><span><i class="bi bi-stop-circle-fill" style="color:white"></i></span></button>
+            <a href="." class="btn btn-success"><span><i class="bi bi-arrow-repeat" style="color:white"></i></span></a>
+        </center>
+        <br>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</body>
+</html>
+<script type="text/javascript">
+    var camaraSelected = 0;
+    var tamCamaras = 0;
+    var scanner = ''; 
+
+    function encenderCamara(){
+        //habilitarAccesoGifCard();
+       // return;
+            apagarCamara();
+            if(camaraSelected == tamCamaras){
+                camaraSelected = 0;
+            }
+            let nroCamera = camaraSelected;
+            camaraSelected = camaraSelected + 1;
+            
+            Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[nroCamera]);
+            }});
+            scanner.addListener('scan', function (content) {
+                alert(content);  
+            habilitarAccesoGifCard(content);
+            //alert(content);
+            //let prueba = "https://pilotosiat.impuestos.gob.bo/consulta/QR?nit=4394186018&cuf=12CA99394E6C588ABAAE1738A531DD023F073A5A7C168085C4E6F2FD74&numero=6&t=1";
+            /*
+            let pruebaStr = content.split('&');
+            if(pruebaStr.length == 4){
+                let numeroStr= pruebaStr[2].split('=');
+                if(numeroStr.length == 2){
+                    let numeroFacturaEncontrado = numeroStr[1];
+                    $('#nro_factura').val(numeroFacturaEncontrado);
+                    $('#url_factura').val(content);
+                    alert(content);
+                }
+            }*/
+            //apagarCamara();
+            //window.location.href=content;
+            });
+    }
+    function apagarCamara(){
+        let nroCamera = camaraSelected -1;
+        if(nroCamera != -1){
+            Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+            scanner.stop(cameras[nroCamera]);
+            }});
+        }
+        
+    }
+
+    $(document).ready(function(){
+        scanner = new Instascan.Scanner({
+            video: document.getElementById('preview'),
+            scanPeriod: 5,
+            mirror: false
+        });
+    
+        Instascan.Camera.getCameras().then(function (cameras) {
+            tamCamaras = cameras.length;
+        }).catch(function (e) {
+            console.error(e);
+            //alert(e);
+        });
+
+        let navegador = navigator.userAgent;
+        if (window.innerWidth <= 768) {
+            //alert("Es un móvil");
+            $('#preview').css('width', '80%');
+        }else{
+            //alert("es una pc");
+            $('#miDiv').css('width', '500px');
+            $('#miDiv').css('height', '500px');
+            $('#miDiv').css('margin', '0px auto');
+        }
+                                
+    });
+
+    function habilitarAccesoGifCard(token){
+        //let url_sg = `<?=URL_SISTEMA_GENERAL?>`;
+        //enlace = `http://192.168.1.16/SistemaGeneralB/habilitarAccesoGifCard`;
+        enlace = `https://sistemademo.azurewebsites.net/habilitarAccesoGifCard`;
+        //enlace = url_sg+`/get_venta_progamada`;
+        datos = {};
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'User-Agent': 'insomnia/2023.5.8',
+                Authorization: 'Bearer '+token
+                },
+            body: JSON.stringify(datos)
+        };
+
+        fetch(enlace, options)
+        .then(response => response.json())
+        .then(data =>{
+                if(data.status){
+                    swal({
+                    title: "Saldo :"+data.saldo,
+                    icon: "success"
+                    });
+                    apagarCamara();
+                }else{
+                    if(data.message){
+                        swal({
+                            title: data.message,
+                            icon: "error"
+                        });
+                    }else{
+                        swal({
+                            title: "Sucedio un error.",
+                            icon: "error"
+                        });
+                    }
+                    return;
+                }
+            }
+        ).catch(err => console.error(err));
+    }
+    
+
+</script>

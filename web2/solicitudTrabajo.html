@@ -1,0 +1,300 @@
+<?php
+ $codigoConvocatoria=$_GET["codigo"];
+?>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/>
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<!--  jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+	<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+	<!-- Bootstrap Date-Picker Plugin -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+	<!--Get your own code icon at fontawesome.com-->
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<script src="js/validaBotones.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+	
+	
+	<!-- Bootstrap Stylesheets -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Font Awesome Stylesheets -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/c1291cc4f9.js" crossorigin="anonymous"></script>
+	<!-- Template Main Stylesheets -->
+	<link rel="stylesheet" href="css/contact-form.css" type="text/css">	
+
+	
+   
+     <!-- Site Metas -->
+	 <title>Capresso Café</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="icon" type="image/x-icon" href="images/icons/capcon.ico" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	
+     
+	<!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+	<script>
+		function mostrar(frm,num) {
+			if(num==0) {
+				frm.colegio.style.visibility='visible';
+				//frm.txt2.style.visibility='hidden';
+				
+			}
+			else {
+				frm.colegio.style.visibility='hidden';
+				//frm.txt2.style.visibility='visible';
+			}
+		}
+	</script>
+	
+</head>
+
+<body>
+	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">
+					<img src="images/logo.png" alt="" />
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-rs-food">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"><a class="nav-link" href="index.html">Inicio</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="menu.html" id="dropdown-a" data-toggle="dropdown">Menú</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="bolsaCafe.html">Bolsas de café</a>
+								<a class="dropdown-item" href="bebidasCalientes.html">Bebidas calientes</a>
+								<a class="dropdown-item" href="bebidasFrias.html">Bebidas Frías</a>
+								<a class="dropdown-item" href="teFrio.html">Tés Fríos</a>
+								<a class="dropdown-item" href="frutasNaturales.html">Frutas Naturales</a>
+								<a class="dropdown-item" href="reposteriaFina.html">Repostería Fina</a>
+								<a class="dropdown-item" href="paniniPizza.html">Panini</a>
+								<a class="dropdown-item" href="desayunos.html">Desayunos</a>
+								<a class="dropdown-item" href="comboRegalo.html">Combo de regalo</a>
+							</div>
+						</li>
+						
+            <li class="nav-item"><a class="nav-link" href="trabajaconnosotros/">Trabaja con Nosotros</a></li>
+					
+						
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Sucursales</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="sucAmericaE.html">América Este</a>
+								<a class="dropdown-item" href="sucAmericaO.html">América Oeste</a>
+								<a class="dropdown-item" href="sucJordan.html">Jordán</a>
+								<a class="dropdown-item" href="sucHupermall.html">Hupermall</a>
+								<a class="dropdown-item" href="sucLincoln.html">Lincoln</a>
+								<a class="dropdown-item" href="sucPando.html">Pando</a>
+								<a class="dropdown-item" href="sucSalamanca.html">Salamanca</a>
+								<a class="dropdown-item" href="sucCineC.html">Mega Center</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
+	<br><br><br><br><br>
+	<section id="contact-form-section" class="form-content-wrap">
+		<div class="container">
+			<div class="row">
+				<div class="tab-content">
+					<div class="col-sm-12">
+						<div class="item-wrap">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="item-content colBottomMargin">
+										<div class="item-info">
+											<h2 class="section-heading text-uppercase text-center">Formulario de Postulación</h2>
+										</div><!--End item-info -->
+								   </div><!--End item-content -->
+								</div><!--End col -->
+								<div class="col-md-12">
+									<span class="sub-text" style="color: red">* Campos requeridos</span>
+									<form id="contactForm" name="contactform" data-toggle="validator" class="popup-form" action= "registroCurriculumC.php" method="post" enctype="multipart/form-data">
+										<div class="row">
+											
+												<div class="form-group col-sm-4">
+													<div class="help-block with-errors"></div>
+														<input name="fname" id="fname" placeholder="Nombres*" class="form-control" type="text" required data-error="Por favor ingresa tu nombre"> 
+														<div class="input-group-icon"><i class="fa fa-user"></i></div>
+													</div>
+													<div class="form-group col-sm-4">
+														<div class="help-block with-errors"></div>
+															<input name="fapellido" id="fapellido" placeholder="Apellido Paterno*" class="form-control" type="text" required data-error="Por favor ingresa tus apellidos"> 
+														<div class="input-group-icon"><i class="fa fa-user"></i></div>
+													</div>
+													<div class="form-group col-sm-4">
+														<div class="help-block with-errors"></div>
+															<input name="apellidoM" id="apellidoM" placeholder="Apellido Materno*" class="form-control" type="text" required data-error="Por favor ingresa tus apellidos"> 
+														<div class="input-group-icon"><i class="fa fa-user"></i></div>
+													</div>
+													<div class="form-group col-sm-4">
+														<div class="help-block with-errors"></div>
+														<input name="celular" id="celular" placeholder="Celular*" class="form-control" type="text" required data-error="Por favor ingresa tu número de celular">
+														<div class="input-group-icon"><i class="fa fa-mobile"></i></div> 
+													</div>
+													<div class="form-group col-sm-4">
+															<div class="help-block with-errors"></div>
+															<input name="phone" id="phone" placeholder="Teléfono" class="form-control" type="text" >
+															<div class="input-group-icon"><i class="fa fa-phone"></i></div> 
+													</div>
+													<div class="form-group col-sm-4">
+															<div class="help-block with-errors"></div>
+															<input name="fnacimiento" id="fnacimiento" placeholder="Fecha de Nacimiento*" class="form-control" type="date" required data-error="Por favor su fecha de Nacimiento"> 
+															<div class="input-group-icon"><i class="fa fa-calendar"></i></div>
+													</div><!-- end form-group -->
+													
+													<div class="form-group col-sm-4">
+														<div class="help-block with-errors"></div>
+														<input name="ndocumento" id="ndocumento" placeholder="Número de Documento*" class="form-control" type="text" required data-error="Por favor ingresa tus apellidos"> 
+														<div class="input-group-icon"><i class="fa fa-id-card"></i></div>
+													</div><!-- end form-group -->
+													<div class="form-group col-sm-2">
+														<select class="form-control" >
+															<option selected>EXT.</option>
+															<option value="CB">CB</option>
+															<option value="SC">SC</option>
+															<option value="LP">LP</option>
+															<option value="OR">OR</option>
+															<option value="PA">PA</option>
+															<option value="BE">BE</option>
+															<option value="PT">PT</option>
+															<option value="CH">CH</option>
+															<option value="TA">TA</option>
+															</select>
+															<div class="input-group-icon"><i class="fa fa-caret-square-o-down"></i></div>
+														</div><!-- end form-group -->
+													
+													<div class="form-group col-sm-6">
+														<div class="help-block with-errors"></div>
+														<input name="email" id="email" placeholder="E-mail*" pattern=".*@\w{2,}\.\w{2,}" class="form-control" type="email" required data-error="Por favor ingresa un correo electrónico válido">
+														<div class="input-group-icon"><i class="fa fa-envelope"></i></div>
+													</div><!-- end form-group -->
+													
+													<div class="form-group col-sm-12">
+														<div class="help-block with-errors"></div>
+														<input name="direccion" id="direccion" placeholder="Domicilio*" class="form-control" onKeyUp="validarColegio()" type="text"  >
+														<div class="input-group-icon"><i class="fa fa-mobile"></i></div> 
+													</div><!-- end form-group -->
+													
+													<div class="form-group col-sm-2">
+														<h3>Título Bachiller </h3>
+													</div><!-- end form-group -->
+													<form>
+														<div class="form-group col-sm-1">
+															<input class="form-check-input" type="radio" name="tituloSi" id="tituloSi" onclick="mostrar(this.form,0)">SI
+                                                            
+                                                        </div><!-- end form-group -->
+														<div class="form-group col-sm-1">
+															<input class="form-check-input" type="radio" name="tituloNo" id="tituloNo" onclick="mostrar(this.form,1)">NO
+                                                       </div><!-- end form-group -->
+                                                       <div class="form-group col-sm-7">
+															<div class="help-block with-errors"></div>
+															<input  name="colegio" id="colegio" placeholder="Nombre del Colegio*" class="form-control" type="text" style="visibility:hidden">
+															<div class="input-group-icon"><i class="fa fa-building-o"></i></div> 
+														</div><!-- end form-group -->
+													</form>
+                                                    
+													<div class="form-group col-sm-6">
+														<div class="help-block with-errors"></div>
+														<input type="file" name="archivoInput" id="archivoInput" onchange="return validarExt()" class="input-file" value="" accept=".pdf"><span class="glyphicon glyphicon-file"></span>
+													</div><!-- end form-group -->
+													<div class="form-group col-sm-6">
+														<div class="help-block with-errors"></div>
+															<input type="hidden" name="codEmpleo" id="codempleo" class="form-control" type="text" value="<?php echo $codigoConvocatoria?>" readonly> 
+														
+													</div><!-- end form-group -->
+
+													<div align="right" class="form-group col-sm-6">
+														<div class="help-block with-errors"></div>
+														<button type="submit" id="submit" class="btn btn-danger btn-sm"><i class='fa fa-envelope'></i> Enviar</button>
+													</div><!-- end form-group -->
+													
+												<div class="clearfix"></div>
+											</div><!-- end row -->
+										</form><!-- end form -->
+								</div>
+							</div><!--End row -->
+							
+						
+								
+							
+							<!-- Popup end -->
+							
+						</div><!-- end item-wrap -->
+					</div><!--End col -->
+				</div><!--End tab-content -->
+			</div><!--End row -->
+		</div><!--End container -->
+	</section>
+	
+	
+	
+	   <!-- Start Contact info -->
+	   <div class="contact-imfo-box">
+        <div class="container">
+            <div align="center" class="row">
+                <div class="col-md-4" >
+                    <li class="list-inline-item"><a href="https://www.facebook.com/capressobolivia/"><img class="img-fluid" src="images/redes/facebook.png"></a></li>
+                </div>
+                <div class="col-md-4" >
+                    <li class="list-inline-item"><a href="https://twitter.com/capressobolivia"><img class="img-fluid" src="images/redes/twiter.png"></a></li>
+                </div>
+                <div class="col-md-4" >
+                    <li class="list-inline-item"><a href="https://www.instagram.com/capressobolivia/"><img class="img-fluid" src="images/redes/instagram.png"></i></a></li>
+                </div>
+            </div>
+        
+				
+				
+			</div>
+		</div>
+	</div>
+	<!-- End Contact info -->
+	
+	<!-- Start Footer -->
+	<footer class="footer-area bg-f">
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<p class="company-name">All Rights Reserved. &copy; 2022 <a href="www.capressocafe.com">Capresso Cafe</a> Design By : 
+					<a href="#">Capresso Cafe</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</footer>
+	<!-- End Footer -->
+    
+</body>
+</html>
